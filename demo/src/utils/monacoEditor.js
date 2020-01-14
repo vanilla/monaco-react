@@ -37,7 +37,7 @@ class Monaco {
   }
 
   createMonacoLoaderScript(mainScript) {
-    const loaderScript = this.createScript(config.urls.monacoLoader);
+    const loaderScript = this.createScript(this.webRoot() + config.urls.monacoLoader);
     loaderScript.onload = _ => this.injectScripts(mainScript);
 
     loaderScript.onerror = this.reject;

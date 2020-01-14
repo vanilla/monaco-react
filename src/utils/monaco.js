@@ -6,6 +6,10 @@ class Monaco {
     this.__config = config;
   }
 
+  webRoot() {
+    return window.MONACO_EDITOR_WEB_ROOT;
+  }
+
   config(config) {
     if (config) {
       this.__config = deepMerge(this.__config, config);
@@ -29,7 +33,7 @@ class Monaco {
   }
 
   createMonacoLoaderScript(mainScript) {
-    const loaderScript = this.createScript(this.__config.urls.monacoLoader);
+    const loaderScript = this.createScript(this.webRoot() + this.__config.urls.monacoLoader);
     loaderScript.onload = _ => this.injectScripts(mainScript);
 
     loaderScript.onerror = this.reject;
@@ -41,7 +45,7 @@ class Monaco {
     const mainScript = this.createScript();
 
     mainScript.innerHTML = `
-      require.config({ paths: { 'vs': '${this.__config.urls.monacoBase}' } });
+      require.config({ paths: { 'vs': '${this.webRoot() + this.__config.urls.monacoBase}' } });
       require(['vs/editor/editor.main'], function() {
         document.dispatchEvent(new Event('monaco_init'));
       });
