@@ -1,4 +1,7 @@
 # monaco-react
+
+Forked from https://nodei.co/npm/@monaco-editor/react/
+
 Monaco Editor for React
 
 [![NPM](https://nodei.co/npm/@monaco-editor/react.png)](https://nodei.co/npm/@monaco-editor/react/)
@@ -33,12 +36,12 @@ There also exist solutions for integration with React; e.g [this one](https://gi
 * Props
 	* [Editor](#editor)
 	* [Diff Editor](#diffeditor)
-	* [Controlled Editor](#controlled-editor) 
+	* [Controlled Editor](#controlled-editor)
 
 #### Installation
 
 ```bash
-npm install @monaco-editor/react 
+npm install @monaco-editor/react
 ```
 
 or
